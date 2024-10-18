@@ -1,17 +1,21 @@
 ---
 import MainHead from "./mainHead.astro";
 import Nav from "../components/nav.astro";
+import Footer from "../components/footer.astro";
 const {title, seoTitle, seoDescription} = Astro.props;
 ---
 
 <html>
     <MainHead title={title} seoTitle={seoTitle} seoDescription={seoDescription} />
-    <body class="bg-slate-900 text-white" >
+    <body class="bg-violet-900 text-white grid gap-0" >
         <Nav />
         <slot />
+        <Footer />
         <style>
-            font-fmaily: "Carlito", san-serif;
-            min-height: 100vh;
+            body {
+                font-fmaily: "Carlito", san-serif;
+                min-height: 100vh;
+            }
         </style>
     </body>
 </html> 

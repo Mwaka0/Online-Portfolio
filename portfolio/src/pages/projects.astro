@@ -1,0 +1,34 @@
+---
+import MainLayout from "../layouts/mainLayout.astro";
+---
+
+<MainLayout 
+title={"Dylan Mwakasekele's Projects"} 
+seoTitle={"Dylan Mwakasekele's Projects"} 
+seoDescription={"2nd Year BSc Computing Science Student at the University of Dundee"}>
+
+<div class="w-8/12 lg:w-6/12 mx-auto">
+    <h1 class="text-5xl md:text-6xl text-center my-2">Projects 😎</h1>
+    <div class="grid md:grid-cols-2 gap-2">
+        <a><img class="rounded" src="" width="300px" height="300px"/></a>
+        <a><img class="rounded" src="" width="300px" height="300px"/></a>
+        <a><img class="rounded" src="" width="300px" height="300px"/></a>
+        <a><img class="rounded" src="" width="300px" height="300px"/></a>
+    </div>
+</div>
+
+<div id="typed-strings">
+    <p>I should probrablly do something...</p>
+</div>
+
+<div class="text-center mt-6"><span id="typed"></span></div>
+</MainLayout>
+
+<script>
+    import Typed from "typed.js"
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 50,
+        loop: true
+        });  
+</script>
