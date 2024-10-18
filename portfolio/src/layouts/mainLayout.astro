@@ -1,0 +1,15 @@
+---
+import MainHead from "./mainHead.astro";
+const {title, seoTitle, seoDescription} = Astro.props;
+---
+
+<html>
+    <MainHead title={title} seoTitle={seoTitle} seoDescription={seoDescription} />
+    <body class="bg-slate-900 text-white" >
+        <slot />
+        <style>
+            font-fmaily: "Carlito", san-serif;
+            min-height: 100vh;
+        </style>
+    </body>
+</html> 
