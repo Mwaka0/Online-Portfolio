@@ -2,49 +2,35 @@
 import MainLayout from "../../layouts/mainLayout.astro";
 
 export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { projects: "proj1" } },
-      { params: { projects: "proj2" } },
-      { params: { projects: "proj3" } },
-      { params: { projects: "proj4" } },
-    ],
-    fallback: false, 
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const projectData = {
-    proj1: {
-      name: "Selkies And Munros",
-      desc: "A snakes in ladders terminal game with extra abilities on certain spaces",
+  return [
+    {
+      params: { projects: "proj1" },
+      props: { name: "Selkies and Munros" },
     },
-    proj2: { name: "Project 2", desc: "Some sort of description" },
-    proj3: { name: "Project 3", desc: "Some sort of description" },
-    proj4: { name: "Project 4", desc: "Some sort of description" },
-  };
-
-  const project = projectData[params.projects];
-  console.log(project);
-  
-  if (!project) {
-    return {
-      notFound: true,  
-    };
-  }
-  return { props: project };
+    {
+      params: { projects: "proj2" },
+      props: { name: "proj2" },
+    },
+    {
+      params: { projects: "proj3" },
+      props: { name: "proj3" },
+    },
+    {
+      params: { projects: "proj4" },
+      props: { name: "proj4" },
+    }
+  ];
 }
 
-const { name, desc } = Astro.props;
 const { projects } = Astro.params;
+const { name } = Astro.props;
 
-console.log("Project:", projects);
-console.log("Name:", name);
-console.log("Description:", desc);
+console.log("Project: ", projects);
+console.log("Name: ", name);
 ---
 
 <MainLayout 
-  title={name}
+  title={name || "Default Title"}
   seoTitle={"Dylan Mwakasekele, Software Engineer Online Portfolio"} 
   seoDescription={"2nd Year BSc Computing Science Student at the University of Dundee"}>
   
@@ -55,8 +41,7 @@ console.log("Description:", desc);
       height="600"
       class="rounded content-center"
     />
-    <h1 class="font-bold mt-4">Project {name}</h1>
-    <p>{desc}</p>
+    <h1 class="font-bold mt-4">Project: {name || "Unnamed Project"}</h1>
     <section></section>
   </section>
 
