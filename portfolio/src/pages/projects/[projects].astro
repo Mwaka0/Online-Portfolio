@@ -8,7 +8,7 @@ export async function getStaticPaths() {
       props: { name: "Selkies and Munros" },
     },
     {
-      params: { projects: "proj2" },
+      params: { projects: "proj2" }, 
       props: { name: "proj2" },
     },
     {
@@ -27,6 +27,7 @@ const { name } = Astro.props;
 
 console.log("Project: ", projects);
 console.log("Name: ", name);
+console.log("Astro: ", Astro.props, Astro.params);
 ---
 
 <MainLayout 
